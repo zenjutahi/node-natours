@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  mongo:
+    image: mongo:4
+    container_name: natours-mongo
+    ports:
+      - '27090:27017'
+    networks:
+      - natours
+    volumes:
+      - mongo:/data/db
+
+networks:
+  natours:
+    name: natours-network
+
+volumes:
+  mongo:
+    driver: local
